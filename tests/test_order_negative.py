@@ -6,7 +6,7 @@ from ecommerce.order import create_order, update_order_status, VALID_STATUSES
 @allure.description("Raises ValueError if customer name is empty, a number, or None.")
 @pytest.mark.parametrize("customer_name", ["", 123, None])
 def test_create_order_invalid_customer_name(customer_name):
-    with pytest.raises(ValueError, match="Invalid customer name")
+    with pytest.raises(ValueError, match="Invalid customer name"):
         create_order(customer_name, [{"name": "item", "price": 5.0, "quantity": 1}])
 
 @allure.title("Create order with invalid item list")
