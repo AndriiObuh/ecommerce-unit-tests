@@ -1,25 +1,60 @@
 # Ecommerce Order Logic — Unit Testing Project
 
-This project contains core business logic for an ecommerce order system.
+This project contains core business logic for an ecommerce order system.  
+Unit tests cover order creation and status updates, including both valid and invalid cases.  
+CI/CD is integrated via GitHub Actions. Allure reporting is supported.
+
+## Project Structure
+```plaintext
+ecommerce_unit_tests/
+│
+├── ecommerce/
+│ ├── __init__.py
+│ ├── order.py # Main business logic: create and update orders
+│
+├── tests/
+│ ├── __init__.py
+│ ├── test_order_valid.py # Positive tests
+│ └── test_order_invalid.py # Negative tests
+│
+├── .github/
+│ └── workflows/
+│ └── tests.yml # GitHub Actions workflow
+│
+├── README.md
+├── requirements.txt
+└── pytest.ini
+```
 
 ## Features
 
-- Pure Python business logic (no database, no UI)
-- Unit tests with `pytest`
-- Code coverage with `pytest-cov`
-- Allure reports for test results
-- CI/CD with GitHub Actions (coming soon)
+-  **Functions tested**:
+  - `create_order(data: dict) -> dict`
+  - `update_order_status(order: dict, new_status: str) -> dict`
+-  Covers valid and invalid input cases
+-  Packaged as a Python module
+-  Integrated with **GitHub Actions** for CI
 
-## Run tests
-
-```bash
-pytest
-```
-## Run coverage
+## How to Run Tests Locally
 
 ```bash
-pytest --cov
+# Clone the repo
+git clone https://github.com/AndriiObuh/ecommerce-unit-tests.git
+cd ecommerce-unit-tests
+
+# (Optional) Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Run tests
+pytest -v
 ```
+
+## Continuous Integration (CI)
+Tests are automatically executed on every push and pull request using GitHub Actions.
 
 ## Generate Allure report
 
