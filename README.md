@@ -53,7 +53,24 @@ pip install -r requirements.txt
 pytest -v
 ```
 
-## Continuous Integration (CI)
+## Run Tests with Coverage
+
+```bash
+# Run tests with coverage report in terminal
+pytest --cov=ecommerce
+
+# Run tests with coverage report in terminal and generate HTML report
+pytest --cov=ecommerce --cov-report=term --cov-report=html
+
+# After HTML report generation, open it in your browser
+# On Linux/macOS
+xdg-open htmlcov/index.html
+
+# On Windows
+start htmlcov/index.html
+```
+
+## Continuous Integration (CI/CD)
 Tests are automatically executed on every push and pull request using GitHub Actions.
 
 ## Generate Allure report
