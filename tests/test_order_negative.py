@@ -28,7 +28,7 @@ def test_create_order_missing_item_fild():
 @pytest.mark.parametrize("price", [-10, 0, "free"])
 def test_create_order_invalid_price(price):
     items = [{"name": "phone", "price": price, "quantity": 1}]
-    with pytest.raises(ValueError, match="Price must be a positive number")
+    with pytest.raises(ValueError, match="Price must be a positive number"):
         create_order("Andrii", items)
 
 @allure.title("Create order with invalid quantity")
@@ -42,7 +42,7 @@ def test_create_order_invalid_quantity(quantity):
 @allure.title("Update order with invalid status")
 @allure.description("Raises ValueError if the provided status is not in the valid list.")
 def test_update_order_status_invalid():
-    with pytest.raises(ValueError, match="Invalid status")
+    with pytest.raises(ValueError, match="Invalid status"):
         update_order_status({"status": "created"}, "unknown_status")
 
 
